@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<link rel="icon" type="image/png" href="media/icon.png" />
+		<title>Streamplayer</title>
+		<link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="scripts/streamplayer.js"></script>
+		<script type="text/javascript" src="https://cdn.viblast.com/vb/stable/viblast.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script>
+		<script type="text/javascript" src="//player.wowza.com/player/latest/wowzaplayer.min.js"></script>
+		<script type="text/javascript" src="//bitmovin-a.akamaihd.net/bitmovin-player/stable/7/bitmovinplayer.js"></script>
+	</head>
+	<body>
+		<div id="header" class="no-selection">
+			<h1>STREAMPLAYER <span>Version 1.0<span class="blink">_</span></span></h1>
+		</div>
+		<div id="content">
+			<div id="playerdiv">
+				<img src="media/placeholder.png" />
+				<video class="player" id="viblastPlayer" controls width="100%"></video>
+				<video class="player" id="hlsPlayer" controls width="100%"></video>
+				<div class="player" id="wowzaPlayer" style="width:100%; height:0; padding:0 0 56.25% 0"></div>
+				<div class="player "id="bitmovinPlayer"></div>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<div id="input">
+					<fieldset>
+						<legend class="no-selection"><img src="media/film.png"/> <strong>1.</strong> Stream</legend>
+						<p class="no-selection">Set your own custom URL or select one from the dropdown.</p>
+						<input placeholder="Stream URL" id="url" type='text'>
+						<select id="urlSelector">
+							<option value="" disabled selected>Our Streams</option>
+							<optgroup label="Video">
+								<option class="subGroup" disabled>HLS</option>
+								<option value="http://lsv.swisstxt.ch/lsv/smil:StudiocamSRF3/playlist.m3u8">Studiocam</option>
+								<option value="http://lsv.swisstxt.ch/rts/smil:RTSun/playlist.m3u8">RTSun</option>
+								<option value="http://lsv.swisstxt.ch/rts/smil:RTSdeux/playlist.m3u8">RTSdeux</option>
+								<option class="subGroup" disabled>DASH</option>
+								<option value="http://lsv.swisstxt.ch/lsv/smil:StudiocamSRF3/manifest.mpd">Studiocam</option>
+								<option value="http://lsv.swisstxt.ch/rts/smil:RTSun/manifest.mpd">RTSun</option>
+								<option value="http://lsv.swisstxt.ch/rts/smil:RTSdeux/manifest.mpd">RTSdeux</option>
+							</optgroup>
+							<optgroup label="Audio">
+								<option class="subGroup" disabled>HLS</option>
+								<option value="http://lsaplus.swisstxt.ch/audio/drs1_96.stream/playlist.m3u8">SRF1</option>
+								<option value="http://lsaplus.swisstxt.ch/audio/drs2_96.stream/playlist.m3u8">SRF2</option>
+								<option value="http://lsaplus.swisstxt.ch/audio/drs3_96.stream/playlist.m3u8">SRF3</option>
+							</optgroup>
+						</select>
+					</fieldset>
+				</div>
+				<div class="buttons">
+					<fieldset>
+						<legend class="no-selection"><img src="media/videoplayer.png"/> <strong>2.</strong> Player</legend>
+						<button name="viblast" type="button" id="viblastButton" class="selButton m3u8 mpd disabled" disabled="true">viblast</button>
+						<button name="hls" type="button" id="hlsButton" class="selButton m3u8 disabled" disabled="true">hls.js</button>
+						<button name="wowza" type="button" id="wowzaButton" class="selButton m3u8 disabled" disabled="true">wowza</button>
+						<button name="bitmovin" type="button" id="bitmovinButton" class="selButton m3u8 mpd disabled" disabled="true">bitmovin</button>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+		<a id="showHelp" class="no-selection">?</a>
+		<div id="help" title="">
+			<h3><img src="media/film.png"/> SUPPORTED STREAMS</h3>
+			<ul>
+				<li><strong>HLS</strong>(.m3u8)</li>
+				<li><strong>DASH</strong>(.mpd)</li>
+			</ul>
+			<h3><img src="media/videoplayer.png"/> AVAILABLE PLAYERS</h3>
+			<ul>
+				<li><a href="http://viblast.com/player/" target="_blank">Viblast</a>(HLS and DASH)</li>
+				<li><a href="https://github.com/video-dev/hls.js/tree/master" target="_blank">hls.js</a>(HLS)</li>
+				<li><a href="https://www.wowza.com/products/player" target="_blank">Wowza</a>(HLS)</li>
+				<li><a href="https://bitmovin.com/html5-player/" target="_blank">Bitmovin</a>(HLS and DASH)</li>
+			</ul>
+			<h3><img src="media/news.png"/> HOW TO USE IT</h3>
+			<p>In fact, using this page is pretty simple. If you can't figure it out on your own, I have bad news for you.<sup>just kidding, you're a wonderful person</sup></p>
+			<p>So here's a brief explanation:</p>
+			<ol>
+				<li>In the first box you can define which stream you want to use. You have two possibilities: Set your own or choose one of ours.</li>
+				<span>Remember: The only possible sources are HLS and DASH.</span>
+				<li>According to the type of stream you choose in step 1, only the players which can actually play the type of stream are going to be activated. Choose a player and enjoy.</li>
+				<li>I don't have a third advice, but two seemed like not enough.</li>
+			</ol>
+        </div>
+        <button name="danielify" type="button" id="danielifyButton">DANIELIFY!</button>
+
+	</body>
+</html>
