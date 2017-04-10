@@ -1,11 +1,11 @@
-#STREAMPLAYER
+# STREAMPLAYER
 A website to test HLS or DASH streams with different players.
 
-##SUPPORTED STREAMS
+## SUPPORTED STREAMS
 * HLS(.m3u8)
 * DASH(.mpd)
 
-##AVAILABLE PLAYERS
+## AVAILABLE PLAYERS
 1. [Viblast](http://viblast.com/player/)
 2. [hls.js](https://github.com/video-dev/hls.js/tree/master)
 3. [wowza](https://www.wowza.com/products/player)
