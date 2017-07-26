@@ -8,10 +8,9 @@
                         </ul>
                         <h3><img height="20px" src="media/videoplayer.png"/> AVAILABLE PLAYERS</h3>
                         <ul>
-                                <li><a href="http://viblast.com/player/" target="_blank">Viblast</a>(HLS and DASH)</li>
-                                <li><a href="https://github.com/video-dev/hls.js/tree/master" target="_blank">hls.js</a>(HLS)</li>
-                                <li><a href="https://www.wowza.com/products/player" target="_blank">Wowza</a>(HLS)</li>
-                                <li><a href="https://bitmovin.com/html5-player/" target="_blank">Bitmovin</a>(HLS and DASH)</li>
+				            <li><a href="https://github.com/video-dev/hls.js/tree/master" target="_blank">hls.js</a>(HLS)</li>
+				            <li><a href="https://www.wowza.com/products/player" target="_blank">Wowza</a>(HLS)</li>
+                            <li><a href="https://github.com/Dash-Industry-Forum/dash.js" target="_blank">dash.js</a>(DASH)</li>
                         </ul>
                         <h3><img height="20px" src="media/news.png"/> HOW TO USE IT</h3>
                         <p>In fact, using this page is pretty simple. If you can't figure it out on your own, I have bad news for you.<sup>just kidding, you're a wonderful person</sup></p>

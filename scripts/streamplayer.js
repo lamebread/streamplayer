@@ -36,15 +36,6 @@ function startStream(theURL, player) {
     $("#"+player+"Player").show();
     stopStream();
     switch (player) {
-        case "viblast":
-            viblast("#viblastPlayer").setup({
-                key: '089718d4-0125-4b7a-9ce3-eef2af44ece1',
-                stream: theURL,
-                autoplay: true
-            });
-            curPlayer = "viblast";
-            break;
-        
         case "hls":
             if(Hls.isSupported()) {
                 var hls = new Hls();
@@ -68,42 +59,10 @@ function startStream(theURL, player) {
                               );
             curPlayer = "wowza";
             break;
-        
-        case "bitmovin":
-            var extension = url.split(`.`).pop();
-            var conf;
-            if (extension == ".mpd"){
-                conf = {
-                    key: "577560fc-f02a-4a71-8e16-8c2b3aaf1bf2",
-                    autoplay: "true",
-                    source: {
-                        dash:        theURL,
-                    },
-                    playback: {
-                        autoplay: true
-                    },
-                    logs: {
-                        bitmovin: false
-                    }              
-                };
-            } else{
-                conf = {
-                    key: "577560fc-f02a-4a71-8e16-8c2b3aaf1bf2",
-                    autoplay: "true",
-                    source: {
-                        hls:        theURL,
-                    },
-                    playback: {
-                        autoplay: true
-                    },
-                    logs: {
-                        bitmovin: false
-                    }
-                };
-            }
-            var player = bitmovin.player("bitmovinPlayer");
-            player.setup(conf);
-            curPlayer = "bitmovin";
+        case "dash":
+            var dashPlayer = dashjs.MediaPlayer().create();
+            dashPlayer.initialize(document.querySelector("#dashPlayer"), theURL, true);
+            curPlayer = "dash";
             break;
 }
 }
@@ -114,14 +73,11 @@ function stopStream() {
         case "hls":
             hlsPlayer.pause();
             break;
-        case "viblast":
-            viblast("#viblastPlayer").stop();
-            break;
-        case "bitmovin":
-            bitmovin.player("bitmovinPlayer").unload();
-            break;
         case "wowza":
             WowzaPlayer.get('wowzaPlayer').pause();
+            break;
+        case "dash":
+            dashPlayer.pause();
             break;
     }
 }

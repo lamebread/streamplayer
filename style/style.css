@@ -71,8 +71,16 @@ img {
 
 #footer select {
     float: right;
-    width: 18%;
+    background-color: white;
+    width: 28%;
     height: 20px;
+    border-radius: 6px;
+}
+
+#url {
+    width: 70%;
+    height: 20px;
+    font-size: 20px;
 }
 
 .subGroup {
@@ -113,12 +121,6 @@ legend {
     color: #C90909;
     text-transform: uppercase;
     font-weight: bold;
-}
-
-#url {
-    width: 80%;
-    height: 20px;
-    font-size: 20px;
 }
 
 .selButton {
