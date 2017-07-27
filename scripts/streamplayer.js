@@ -15,11 +15,11 @@ $(document).ready(function() {
         btnDisabler();
     } );
     $("#url").keyup( btnDisabler );
-    //Pretty useless, I just wanted the line to blink...
+    //Pretty useless, I just wanted a line to blink...
     $(".blink").each(function() {
     var elem = $(this);
     setInterval(function() {
-        if (elem.css('visibility') == 'hidden') {
+        if (elem.scss('visibility') == 'hidden') {
             elem.css('visibility', 'visible');
         } else {
             elem.css('visibility', 'hidden');
@@ -27,7 +27,7 @@ $(document).ready(function() {
     }, 500);
     });
     $("#danielifyButton").click(function(){
-        document.body.style.backgroundImage = "url('../media/logo.jpg')";$("#content").show();$("#header").show();$("#footer").show();$("#showHelp").show();$("#danielifyButton").hide();})
+        document.body.style.backgroundImage = "url('/media/logo.jpg')";$("#content").show();$("#header").show();$("#footer").show();$("#showHelp").show();$("#danielifyButton").hide();})
 });
 
 function startStream(theURL, player) {
