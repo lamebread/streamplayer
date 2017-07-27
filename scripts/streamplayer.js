@@ -19,7 +19,7 @@ $(document).ready(function() {
     $(".blink").each(function() {
     var elem = $(this);
     setInterval(function() {
-        if (elem.scss('visibility') == 'hidden') {
+        if (elem.css('visibility') == 'hidden') {
             elem.css('visibility', 'visible');
         } else {
             elem.css('visibility', 'hidden');
