@@ -27,7 +27,7 @@ $(document).ready(function() {
     }, 500);
     });
     $("#danielifyButton").click(function(){
-        document.body.style.backgroundImage = "url('/media/logo.jpg')";$("#content").show();$("#header").show();$("#footer").show();$("#showHelp").show();$("#danielifyButton").hide();})
+        document.body.style.backgroundImage = "url('media/logo.jpg')";$("#content").show();$("#header").show();$("#footer").show();$("#showHelp").show();$("#danielifyButton").hide();})
 });
 
 function startStream(theURL, player) {
