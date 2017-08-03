@@ -54,15 +54,6 @@ function startStream(theURL, player) {
             }
             curPlayer = "hls";
             break;
-        case "wowza":
-            WowzaPlayer.create('wowzaPlayer', {
-                "license": "PLAY1-7rWx3-9hv9R-tW4kE-RBrhR-Gmnwv",
-                "sourceURL": theURL,
-                "autoPlay": true,
-                "volume": "75"
-            });
-            curPlayer = "wowza";
-            break;
         case "dash":
             var dashPlayer = dashjs.MediaPlayer().create();
             dashPlayer.initialize(document.querySelector("#dashPlayer"), theURL, true);
@@ -76,9 +67,6 @@ function stopStream() {
     switch (curPlayer) {
         case "hls":
             hlsPlayer.pause();
-            break;
-        case "wowza":
-            WowzaPlayer.get('wowzaPlayer').pause();
             break;
         case "dash":
             dashPlayer.pause();

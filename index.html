@@ -18,7 +18,6 @@
         <div id="playerdiv">
             <img src="media/placeholder.png" />
             <video class="player" id="hlsPlayer" controls width="100%"></video>
-            <div class="player" id="wowzaPlayer" style="width:100%; height:0; padding:0 0 56.25% 0"></div>
             <video class="player" id="dashPlayer" style="width:100%" data-dashjs-player controls autoplay></video>
 
         </div>
@@ -55,7 +54,6 @@
                 <fieldset>
                     <legend class="no-selection"><img src="media/videoplayer.png" /> <strong>2.</strong> Player</legend>
                     <button name="hls" type="button" id="hlsButton" class="selButton m3u8 disabled" disabled="true">hls.js</button>
-                    <button name="wowza" type="button" id="wowzaButton" class="selButton m3u8 disabled" disabled="true">wowza</button>
                     <button name="dash" type="button" id="dashButton" class="selButton mpd disabled" disabled="true">dash.js</button>
                 </fieldset>
             </div>
@@ -71,7 +69,6 @@
         <h3><img src="media/videoplayer.png" /> AVAILABLE PLAYERS</h3>
         <ul>
             <li><a href="https://github.com/video-dev/hls.js/tree/master" target="_blank">hls.js</a>(HLS)</li>
-            <li><a href="https://www.wowza.com/products/player" target="_blank">Wowza</a>(HLS)</li>
             <li><a href="https://github.com/Dash-Industry-Forum/dash.js" target="_blank">dash.js</a>(DASH)</li>
         </ul>
         <h3><img src="media/news.png" /> HOW TO USE IT</h3>
@@ -89,7 +86,6 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script>
-    <script type="text/javascript" src="https://player.wowza.com/player/latest/wowzaplayer.min.js"></script>
     <script type="text/javascript" src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <script type="text/javascript" src="scripts/streamplayer.js"></script>
 </body>
