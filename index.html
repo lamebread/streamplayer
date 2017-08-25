@@ -2,33 +2,31 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="icon" type="image/png" href="media/icon.png" />
     <title>Streamplayer</title>
-    <link href="https://fonts.googleapis.com/css?family=Heebo" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
     <div id="header" class="no-selection">
-        <h1>STREAMPLAYER <span>Version 1.1<span class="blink">_</span></span>
-        </h1>
+        <h1>STREAMPLAYER</h1>
     </div>
     <div id="content">
         <div id="playerdiv">
             <img src="media/placeholder.png" />
             <video class="player" id="hlsPlayer" controls width="100%"></video>
             <video class="player" id="dashPlayer" style="width:100%" data-dashjs-player controls autoplay></video>
-
         </div>
     </div>
-    <div id="footer">
+    <div id="settings">
         <div>
             <div id="input">
                 <fieldset>
                     <legend class="no-selection"><img src="media/film.png" /> <strong>1.</strong> Stream</legend>
                     <p class="no-selection">Set your own URL or select one from the dropdown. The example URLs are all from the SRG(Schweizerische Radio- und Fernsehgesellschaft), the Swiss Broadcasting Corporation.</p>
-                    <input placeholder="Stream URL" id="url" type='text'>
+                    <input placeholder="Stream URL" id="url" type='text' />
                     <select id="urlSelector">
 							<option disabled selected>Examples</option>
 							<optgroup label="Video">
@@ -59,7 +57,7 @@
             </div>
         </div>
     </div>
-    <a id="showHelp" class="no-selection">?</a>
+    <a id="showHelp" class="no-selection">Help?</a>
     <div id="help" title="">
         <h3><img src="media/film.png" /> SUPPORTED STREAMS</h3>
         <ul>
@@ -84,7 +82,7 @@
     <button name="danielify" type="button" id="danielifyButton">DANIELIFY!</button>
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script>
     <script type="text/javascript" src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
     <script type="text/javascript" src="scripts/streamplayer.js"></script>

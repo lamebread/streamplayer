@@ -1,24 +1,24 @@
 //This variable is used to only turn off the current playing player @function stopStream()
 var curPlayer;
 
-$(document).ready(function () {
-    $("#showHelp").click(function () {
+$(document).ready(function() {
+    $("#showHelp").click(function() {
         $("#help").dialog();
     });
-    $(".selButton").click(function () {
+    $(".selButton").click(function() {
         $("#videoPlaceholder").hide();
         startStream($("#url").val(), this.name);
     });
-    $("#urlSelector").change(function () {
+    $("#urlSelector").change(function() {
         url = $(this).val();
         $("#url").val(url);
         btnDisabler();
     });
     $("#url").keyup(btnDisabler);
     //Pretty useless, I just wanted a line to blink...
-    $(".blink").each(function () {
+    $(".blink").each(function() {
         var elem = $(this);
-        setInterval(function () {
+        setInterval(function() {
             if (elem.css('visibility') == 'hidden') {
                 elem.css('visibility', 'visible');
             } else {
@@ -26,21 +26,46 @@ $(document).ready(function () {
             }
         }, 500);
     });
-    $("#danielifyButton").click(function () {
+    $("#danielifyButton").click(function() {
         document.body.style.backgroundImage = "url('media/logo.jpg')";
         $("#content").show();
         $("#header").show();
         $("#footer").show();
         $("#showHelp").show();
         $("#danielifyButton").hide();
-    })
+    });
+    //With this if clause, the page is able to take parameters from the URL
+    var URLplayer = getUrlParameter('p');
+    var URLurl = getUrlParameter('u');
+    if (URLplayer != undefined && URLurl != undefined) {
+        startStream(URLurl, URLplayer);
+    };
 });
 
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};
+
 function startStream(theURL, player) {
-    console.log("%c Starting " + player, " font-weight: bold; color: black;");
+    //If a player is playing, stop it
+    if (curPlayer != undefined) {
+        stopStream();
+    };
+    console.log("%c Starting " + player, " font-weight: bold; color: green; font-size: 15px;");
+    console.log('With URL: ' + theURL);
     $('.player').siblings().hide()
     $("#" + player + "Player").show();
-    stopStream();
     switch (player) {
         case "hls":
             if (Hls.isSupported()) {
@@ -48,7 +73,7 @@ function startStream(theURL, player) {
                 hls.loadSource(theURL);
                 var hlsPlayer = document.getElementById("hlsPlayer");
                 hls.attachMedia(hlsPlayer);
-                hls.on(Hls.Events.MANIFEST_PARSED, function () {
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
                     hlsPlayer.play();
                 });
             }
@@ -63,7 +88,7 @@ function startStream(theURL, player) {
 }
 
 function stopStream() {
-    console.log("%c Stopping " + curPlayer, "  font-weight: bold; color: black;");
+    console.log("%c Stopping " + curPlayer, "  font-weight: bold; color: red; font-size: 15px;");
     switch (curPlayer) {
         case "hls":
             hlsPlayer.pause();

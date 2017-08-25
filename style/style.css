@@ -1,10 +1,11 @@
+@font-face {
+    font-family: Bowlby;
+    src: url(Bowlby.ttf);
+}
+
 html,
 body {
     margin: 0;
-}
-
-* {
-    font-family: Heebo, sans-serif;
 }
 
 #header {
@@ -18,6 +19,11 @@ body {
     width: 100%;
     height: 5vw;
     box-shadow: 0px 1px 10px gray;
+}
+
+#header h1 {
+    margin-left: 20px;
+    font-family: Bowlby;
 }
 
 .no-selection {
@@ -35,16 +41,6 @@ img {
     -ms-user-select: none;
 }
 
-#header h1 {
-    margin-left: 20px;
-}
-
-#header span {
-    font-size: 0.7vw;
-    color: black;
-    font-style: italic;
-}
-
 #content {
     margin: 0 auto;
     width: 50vw;
@@ -60,18 +56,18 @@ img {
     width: 100%;
 }
 
-#footer {
+#settings {
     margin: 50px auto;
     width: 50vw;
     background-color: white;
 }
 
-#footer p {
+#settings p {
     color: darkslategray;
+    font-family: sans-serif;
 }
 
-#footer select {
-    font-family: Heebo;
+#settings select {
     font-size: 12px;
     background-color: white;
     padding: 2px;
@@ -80,7 +76,7 @@ img {
 }
 
 #url {
-    width: 100%;
+    width: 90%;
     height: 20px;
     font-size: 20px;
     margin-bottom: 10px;
@@ -89,7 +85,6 @@ img {
 .subGroup {
     font-weight: bold;
     color: darkred;
-    font-family: Heebo, Helvetica, sans-serif;
 }
 
 optgroup {
@@ -100,7 +95,7 @@ option {
     color: black;
 }
 
-#footer fieldset {
+#settings fieldset {
     border-color: black;
     border-radius: 5px;
     border-style: solid;
@@ -110,7 +105,7 @@ option {
     padding-bottom: 20px;
 }
 
-#footer fieldset strong {
+#settings fieldset strong {
     font-size: 13px;
 }
 
@@ -123,7 +118,7 @@ legend {
     font-size: 20px;
     color: #C90909;
     text-transform: uppercase;
-    font-weight: bold;
+    font-family: Bowlby, sans-serif;
 }
 
 .selButton {
@@ -208,23 +203,11 @@ legend {
 }
 
 #showHelp {
-    background-color: #c90909;
-    -moz-border-radius: 42px;
-    -webkit-border-radius: 42px;
-    border-radius: 42px;
-    border: 1px solid #000000;
     display: inline-block;
+    font-family: Bowlby, sans-serif;
     cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 28px;
-    padding: 8px 15px;
-    text-decoration: none;
+    color: #c90909;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-}
-
-#showHelp:hover {
-    background-color: #bd2a2a;
+    bottom: 10px;
+    right: 10px;
 }
