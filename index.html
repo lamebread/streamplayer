@@ -11,7 +11,8 @@
 
 <body>
     <div id="header" class="no-selection">
-        <h1>STREAMPLAYER</h1>
+        <h1>STREAMPLAYER
+        </h1>
     </div>
     <div id="content">
         <div id="playerdiv">
@@ -19,6 +20,7 @@
             <video class="player" id="hlsPlayer" controls width="100%"></video>
             <video class="player" id="dashPlayer" style="width:100%" data-dashjs-player controls autoplay></video>
         </div>
+        <a href="" id="copyLink"></a>
     </div>
     <div id="settings">
         <div>
@@ -58,6 +60,9 @@
         </div>
     </div>
     <a id="showHelp" class="no-selection">Help?</a>
+    <div id="InvURL" title="ERROR">
+        <p>The URL you gave me wasn't a good one! :( Make sure that it contains '.mpd' or '.m3u8'.</p>
+    </div>
     <div id="help" title="">
         <h3><img src="media/film.png" /> SUPPORTED STREAMS</h3>
         <ul>

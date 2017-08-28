@@ -1,6 +1,6 @@
 //This variable is used to only turn off the current playing player @function stopStream()
 var curPlayer;
-
+//alert(window.location.origin);
 $(document).ready(function() {
     $("#showHelp").click(function() {
         $("#help").dialog();
@@ -30,16 +30,24 @@ $(document).ready(function() {
         document.body.style.backgroundImage = "url('media/logo.jpg')";
         $("#content").show();
         $("#header").show();
-        $("#footer").show();
+        $("#settings").show();
         $("#showHelp").show();
         $("#danielifyButton").hide();
     });
     //With this if clause, the page is able to take parameters from the URL
     var URLplayer = getUrlParameter('p');
     var URLurl = getUrlParameter('u');
-    if (URLplayer != undefined && URLurl != undefined) {
+    if (URLurl != undefined && URLplayer == undefined) {
+        if (URLurl.indexOf(".mpd") >= 0) {
+            startStream(URLurl, "dash");
+        } else if (URLurl.indexOf(".m3u8") >= 0) {
+            startStream(URLurl, "hls");
+        } else {
+            $("#InvURL").dialog();
+        }
+    } else if (URLurl != undefined && URLplayer != undefined) {
         startStream(URLurl, URLplayer);
-    };
+    }
 });
 
 var getUrlParameter = function getUrlParameter(sParam) {
@@ -64,6 +72,8 @@ function startStream(theURL, player) {
     };
     console.log("%c Starting " + player, " font-weight: bold; color: green; font-size: 15px;");
     console.log('With URL: ' + theURL);
+    $("#copyLink").text(window.location.origin + "?/" + "p=" + player + "&u=" + theURL);
+    $("#copyLink").attr("href", window.location.origin + "?" + "p=" + player + "&u=" + theURL)
     $('.player').siblings().hide()
     $("#" + player + "Player").show();
     switch (player) {
@@ -108,7 +118,7 @@ function btnDisabler() {
     if ($("#url").val() == "Daniel") {
         $("#content").hide();
         $("#header").hide();
-        $("#footer").hide();
+        $("#settings").hide();
         $("#showHelp").hide();
         $("#danielifyButton").removeClass("disabled");
         $("#danielifyButton").show();
