@@ -1,6 +1,17 @@
 @font-face {
-    font-family: Bowlby;
-    src: url(Bowlby.ttf);
+    font-family: Ubuntu-Light;
+    src: url(Ubuntu-Light.ttf);
+}
+
+@font-face {
+    font-family: Ubuntu-Regular;
+    src: url(Ubuntu-Regular.ttf);
+}
+
+:root {
+    --defined-color: #C90909;
+    --title-font: Ubuntu-Regular, sans-serif;
+    --text-font: Ubuntu-Light, sans-serif;
 }
 
 html,
@@ -9,7 +20,7 @@ body {
 }
 
 #header {
-    color: #C90909;
+    color: var(--defined-color);
     font-size: 1vw;
     font-weight: 100;
     font-style: normal;
@@ -23,7 +34,7 @@ body {
 
 #header h1 {
     margin-left: 20px;
-    font-family: Bowlby;
+    font-family: var(--title-font);
 }
 
 .no-selection {
@@ -33,7 +44,6 @@ body {
 }
 
 img {
-    user-drag: none;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -44,7 +54,7 @@ img {
 #content {
     margin: 0 auto;
     width: 50vw;
-    padding-top: 7vw;
+    padding-top: 4.3vw;
     background-color: white;
 }
 
@@ -64,7 +74,7 @@ img {
 
 #settings p {
     color: darkslategray;
-    font-family: sans-serif;
+    font-family: var(--text-font);
 }
 
 #settings select {
@@ -79,20 +89,24 @@ img {
     width: 90%;
     height: 20px;
     font-size: 20px;
+    font-family: var(--title-font);
     margin-bottom: 10px;
 }
 
 .subGroup {
     font-weight: bold;
     color: darkred;
+    font-family: var(--title-font);
 }
 
 optgroup {
-    color: #C90909;
+    color: var(--defined-color);
+    font-family: var(--title-font);
 }
 
 option {
     color: black;
+    font-family: var(--text-font);
 }
 
 #settings fieldset {
@@ -116,16 +130,16 @@ legend img {
 
 legend {
     font-size: 20px;
-    color: #C90909;
+    color: var(--defined-color);
     text-transform: uppercase;
-    font-family: Bowlby, sans-serif;
+    font-family: var(--title-font);
 }
 
 .selButton {
     -moz-box-shadow: inset 0px 1px 0px 0px #f5978e;
     -webkit-box-shadow: inset 0px 1px 0px 0px #f5978e;
     box-shadow: inset 0px 1px 0px 0px #f5978e;
-    background-color: #c90909;
+    background-color: var(--defined-color);
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
@@ -139,10 +153,11 @@ legend {
     text-shadow: 0px 1px 0px #810e05;
     text-align: center;
     margin-bottom: 10px;
+    font-family: var(--title-font);
 }
 
 .selButton:hover {
-    background-color: #c90909;
+    background-color: var(--defined-color);
 }
 
 .selButton:active {
@@ -180,7 +195,8 @@ legend {
 
 #copyLink {
     font-size: 0.7vw;
-    font-family: Courier New, Courier, monospace;
+    font-family: var(--text-font);
+    font-style: italic;
     text-align: center;
 }
 
@@ -189,12 +205,9 @@ legend {
     width: 100%;
 }
 
-#help h1 {
-    color: #7B0000;
-}
-
 #help h3 {
     color: #A50000;
+    font-family: var(--title-font);
 }
 
 #help img {
@@ -206,6 +219,11 @@ legend {
     font-size: 5px;
 }
 
+#help li,
+p {
+    font-family: var(--text-font);
+}
+
 #help ol span {
     font-style: italic;
     color: darkgray;
@@ -214,9 +232,9 @@ legend {
 
 #showHelp {
     display: inline-block;
-    font-family: Bowlby, sans-serif;
+    font-family: var(--title-font);
     cursor: pointer;
-    color: #c90909;
+    color: var(--defined-color);
     position: fixed;
     bottom: 10px;
     right: 10px;
