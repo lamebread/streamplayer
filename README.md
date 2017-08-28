@@ -1,5 +1,5 @@
 <h1>STREAMPLAYER</h1>
-<p>A site to test HLS and DASH streams with different players.</p>
+<p>A site to test HLS and DASH streams with different players</p>
 
 <h3><img height="20px" src="media/film.png" /> SUPPORTED STREAMS</h3>
 <ul>
