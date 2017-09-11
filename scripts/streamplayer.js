@@ -1,5 +1,6 @@
 //This variable is used to only turn off the current playing player @function stopStream()
 var curPlayer;
+console.log(window.location);
 //alert(window.location.origin);
 $(document).ready(function() {
     $("#showHelp").click(function() {
@@ -72,8 +73,8 @@ function startStream(theURL, player) {
     };
     console.log("%c Starting " + player, " font-weight: bold; color: green; font-size: 15px;");
     console.log('With URL: ' + theURL);
-    $("#copyLink").text(window.location.origin + "?/" + "p=" + player + "&u=" + theURL);
-    $("#copyLink").attr("href", window.location.origin + "?" + "p=" + player + "&u=" + theURL)
+    $("#copyLink").text(window.location.origin + window.location.pathname +"?/" + "p=" + player + "&u=" + theURL);
+    $("#copyLink").attr("href", window.location.origin + window.location.pathname + "?" + "p=" + player + "&u=" + theURL)
     $('.player').siblings().hide()
     $("#" + player + "Player").show();
     switch (player) {
