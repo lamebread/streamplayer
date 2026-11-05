@@ -1,3 +1,6 @@
+> [!NOTE]
+> This repo was created during my apprenticeship at SWISSTXT. Never updated it, lots of URLs don't work anymore. Keeping it as a read-only memory :)
+
 <h1>STREAMPLAYER</h1>
 <p>A site to test HLS and DASH streams with different players.</p>
 
